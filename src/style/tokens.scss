@@ -1,0 +1,38 @@
+:root {
+  /* colors */
+  --sk-bg: #ffffff;
+  --sk-bg-soft: #fafafa;
+  --sk-bg-muted: #f1f1f1;
+  --sk-ink: #171717;
+  --sk-ink-soft: #5b5b5b;
+  --sk-line: #000000;
+  --sk-accent: #000000;
+  --sk-accent-2: #ededed;
+  --sk-danger: #000000;
+
+  /* shape */
+  --sk-border-width: 3px;
+  --sk-radius: 10px;
+  --sk-radius-sm: 6px;
+  --sk-radius-pill: 999px;
+
+  /* shadow */
+  --sk-shadow-x: 4px;
+  --sk-shadow-y: 4px;
+  --sk-shadow-color: #000000;
+
+  /* spacing */
+  --sk-space-1: 4px;
+  --sk-space-2: 8px;
+  --sk-space-3: 12px;
+  --sk-space-4: 16px;
+  --sk-space-5: 24px;
+  --sk-space-6: 32px;
+
+  /* typography */
+  --sk-font-body: "Avenir Next", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+  --sk-font-heading: "Gloria Hallelujah", "Chalkboard SE", "Marker Felt", cursive;
+
+  /* motion */
+  --sk-transition: 180ms ease;
+}

@@ -1,0 +1,37 @@
+@use "./tokens.scss";
+@use "./reset.scss";
+
+body {
+    background:
+        linear-gradient(transparent 35px, rgba(0, 0, 0, 0.03) 36px),
+        linear-gradient(90deg, transparent 35px, rgba(0, 0, 0, 0.03) 36px),
+        var(--sk-bg);
+    background-size: 36px 36px;
+    color: var(--sk-ink);
+    font-family: var(--sk-font-body);
+    letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--sk-font-heading);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+::selection {
+    background: var(--sk-line);
+    color: var(--sk-bg);
+}
+
+@font-face {
+    font-family: "Gloria Hallelujah";
+    src: url("../assets/fonts/GloriaHallelujah-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
