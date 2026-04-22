@@ -1,13 +1,6 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import Topnav from './Topnav.vue'
-import SButton from '../components/Button/SButton.vue'
-import SInput from '../components/Input/SInput.vue'
-import SCard from '../components/Card/SCard.vue'
-import { userMenuStore } from '../store/menu.store'
-
-const inputValue = ref('')
-
+import Topnav from '../components/Topnav.vue'
+import { demoRoutes, gettingStartedRoutes } from '../router'
 </script>
 
 <template>
@@ -16,57 +9,23 @@ const inputValue = ref('')
 
     <div class="docs-layout">
       <aside class="docs-sidebar">
-        <h2>Components</h2>
+        <h2>Getting Started</h2>
         <ul>
-          <li>Button</li>
-          <li>Input</li>
-          <li>Card</li>
+          <li v-for="item of gettingStartedRoutes" :key="item.path">
+            <router-link :to="`/docs/${item.path}`" class="docs-sidebar__link">{{ item.name }}</router-link>
+          </li>
+        </ul>
+
+        <h2 class="docs-sidebar__group-title">Components</h2>
+        <ul>
+          <li v-for="item of demoRoutes" :key="item.path">
+            <router-link :to="`/docs/${item.path}`" class="docs-sidebar__link">{{ item.name }}</router-link>
+          </li>
         </ul>
       </aside>
 
       <main class="docs-main">
-        <section class="docs-section">
-          <p class="docs-section__eyebrow">Components</p>
-          <h1>Button</h1>
-          <p class="docs-section__desc">
-            Rough buttons for primary actions, secondary actions, and disabled states.
-          </p>
-
-          <div class="preview-card">
-            <h3>Preview</h3>
-
-            <div class="preview-row">
-              <SButton type="primary">Primary</SButton>
-              <SButton type="outline">Outline</SButton>
-              <SButton size="sm">Small</SButton>
-              <SButton disabled>Disabled</SButton>
-            </div>
-          </div>
-        </section>
-
-        <section class="docs-section">
-            <p class="docs-section__eyebrow">Components</p>
-            <h1>Input</h1>
-            <p class="docs-section__desc">
-                Rough text inputs for forms, search boxes, and simple data entry.
-            </p>
-
-            <div class="preview-card">
-                <h3>Preview</h3>
-
-                <div class="input-preview">
-                    <SInput v-model="inputValue" placeholder="Type something..." />
-                    <SInput size="sm" placeholder="Small input" />
-                    <SInput size="lg" placeholder="Large input" />
-                    <SInput disabled placeholder="Disabled input" />
-                </div>
-            </div>
-        </section>
-
-        <SCard title="Actions">
-            <p>Cards can also hold interactive content.</p>
-            <SButton size="sm">Action</SButton>
-        </SCard>
+        <router-view />
       </main>
     </div>
   </div>
@@ -77,95 +36,119 @@ const inputValue = ref('')
 <style scoped lang="scss">
 .docs {
   min-height: 100vh;
-  padding: 24px 20px 56px;
+  padding: 0 24px 64px;
 }
 
 .docs-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 24px;
-  margin: 28px 0;
+  grid-template-columns: 240px minmax(0, 760px);
+  justify-content: center;
+  gap: 40px;
+  margin: 32px 0 0;
 }
 
 .docs-sidebar {
   align-self: start;
-  padding: 20px;
-  border: var(--sk-border-width) solid var(--sk-line);
-  border-radius: var(--sk-radius);
-  background: var(--sk-bg);
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  position: sticky;
+  top: 24px;
+  padding: 8px 0;
 }
 
 .docs-sidebar h2 {
-  margin-bottom: 14px;
-  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--sk-ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.docs-sidebar__group-title {
+  margin-top: 28px;
 }
 
 .docs-sidebar ul {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
 .docs-sidebar li {
-  padding: 8px 10px;
-  border: 2px solid var(--sk-line);
-  border-radius: var(--sk-radius-sm);
-  background: var(--sk-bg-soft);
+  list-style: none;
+}
+
+.docs-sidebar__link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 10px;
   font-size: 14px;
+  color: var(--sk-ink-soft);
+  text-decoration: none;
+  transition:
+    background var(--sk-transition),
+    color var(--sk-transition);
+}
+
+.docs-sidebar__link:hover,
+.docs-sidebar__link.router-link-active {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--sk-ink);
 }
 
 .docs-main {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 4px;
 }
 
 .docs-section {
-  padding: 28px;
-  border: var(--sk-border-width) solid var(--sk-line);
-  border-radius: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
   background: var(--sk-bg);
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  box-shadow: none;
 }
 
 .docs-section__eyebrow {
   display: inline-block;
   margin-bottom: 12px;
-  padding: 6px 10px;
-  border: 2px solid var(--sk-line);
-  border-radius: var(--sk-radius-pill);
-  background: var(--sk-bg-soft);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--sk-ink-soft);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .docs-section h1 {
-  font-size: clamp(34px, 5vw, 52px);
-  line-height: 1;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.04;
 }
 
 .docs-section__desc {
-  max-width: 640px;
+  max-width: 680px;
   margin-top: 14px;
   color: var(--sk-ink-soft);
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 .preview-card {
   margin-top: 28px;
   padding: 20px;
-  border: 2px solid var(--sk-line);
-  border-radius: var(--sk-radius);
-  background:
-    linear-gradient(transparent 11px, rgba(0, 0, 0, 0.04) 12px),
-    var(--sk-bg-soft);
-  background-size: 100% 12px, auto;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 14px;
+  background: #fff;
 }
 
 .preview-card h3 {
   margin-bottom: 16px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .preview-row {
@@ -182,21 +165,18 @@ const inputValue = ref('')
 }
 
 @media (max-width: 768px) {
-    .docs {
-        padding: 0;
-    }
+  .docs {
+    padding: 0 16px 40px;
+  }
 
-    .docs-layout {
-        grid-template-columns: 1fr;
-    }
+  .docs-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
 
-    .docs-sidebar {
-        display: none;
-    }
-
-    .docs-section {
-        padding: 22px 18px;
-    }
-
+  .docs-sidebar {
+    display: none;
+  }
 }
 </style>

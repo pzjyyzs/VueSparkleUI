@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import Topnav from './Topnav.vue';
-
-import SButton from '../components/Button/SButton.vue';
+import Topnav from '../components/Topnav.vue';
+import SButton from '../lib/Button/SButton.vue';
 </script>
 
 <template>
@@ -116,43 +115,6 @@ import SButton from '../components/Button/SButton.vue';
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 28px;
-}
-
-.rough-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0 20px;
-  border: var(--sk-border-width) solid var(--sk-line);
-  border-radius: var(--sk-radius);
-  background: var(--sk-bg);
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
-  font-family: var(--sk-font-heading);
-  font-size: 17px;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  transition:
-    transform var(--sk-transition),
-    box-shadow var(--sk-transition),
-    background var(--sk-transition);
-}
-
-.rough-btn:hover {
-  transform: translate(3px, 3px) rotate(-1deg);
-  box-shadow: 1px 1px 0 var(--sk-shadow-color);
-}
-
-.rough-btn--solid {
-  background: var(--sk-line);
-  color: var(--sk-bg);
-}
-
-.rough-btn--ghost {
-  background:
-    linear-gradient(transparent 9px, rgba(0, 0, 0, 0.05) 10px),
-    var(--sk-bg);
-  background-size: 100% 10px, auto;
 }
 
 .hero__note {
