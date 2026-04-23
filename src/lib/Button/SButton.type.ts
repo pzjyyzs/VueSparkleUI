@@ -1,9 +1,9 @@
-export type ButtonType = 'primary' | 'outline'
+export type ButtonKind = 'primary' | 'secondary' | 'tertiary' | 'dangerPrimary' | 'dangerSecondary' | 'dangerTertiary'
 
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 export interface SButtonProps {
-    type?: ButtonType
+    kind?: ButtonKind
     size?: ButtonSize
     disabled?: boolean
 }

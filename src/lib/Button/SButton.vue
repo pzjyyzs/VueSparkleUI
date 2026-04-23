@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SButtonProps } from './SButton.type';
 
-withDefaults(defineProps<SButtonProps>(), {
-  type: 'primary',
+const props = withDefaults(defineProps<SButtonProps>(), {
+  kind: 'primary',
   size: 'md',
   disabled: false
 });
@@ -12,10 +12,10 @@ withDefaults(defineProps<SButtonProps>(), {
   <button
     type="button"
     :class="[
-        's-btn',
-        `s-btn--${type}`,
-        `s-btn--${size}`,
-        { 's-btn--disabled': disabled }
+        'sparkle-button',
+        `sparkle-button--${kind}`,
+        `sparkle-button--${size}`,
+        { 'sparkle-button--disabled': disabled }
     ]"
     :disabled="disabled"
   >
@@ -24,8 +24,8 @@ withDefaults(defineProps<SButtonProps>(), {
 </template>
 
 
-<style lang="scss" scoped>
-.s-btn {
+<style lang="scss">
+.sparkle-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -47,48 +47,107 @@ withDefaults(defineProps<SButtonProps>(), {
   cursor: pointer;
 }
 
-.s-btn:hover {
+.sparkle-button:hover {
   transform: translate(3px, 3px) rotate(-1deg);
   box-shadow: 1px 1px 0 var(--sk-shadow-color);
 }
 
-.s-btn--primary {
+.sparkle-button--primary {
   background: var(--sk-line);
   color: var(--sk-bg);
 }
 
-.s-btn--outline {
+.sparkle-button--secondary {
   background:
     linear-gradient(transparent 9px, rgba(0, 0, 0, 0.05) 10px),
     var(--sk-bg);
   background-size: 100% 10px, auto;
+  color: var(--sk-ink);
 }
 
-.s-btn--sm {
+.sparkle-button--tertiary {
+  min-height: auto;
+  padding: 0 2px;
+  border-color: transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--sk-ink);
+}
+
+.sparkle-button--dangerPrimary {
+  border-color: #b42318;
+  background: #b42318;
+  color: #fff;
+}
+
+.sparkle-button--dangerSecondary {
+  border-color: #b42318;
+  background:
+    linear-gradient(transparent 9px, rgba(180, 35, 24, 0.08) 10px),
+    #fff7f6;
+  background-size: 100% 10px, auto;
+  color: #b42318;
+}
+
+.sparkle-button--dangerTertiary {
+  min-height: auto;
+  padding: 0 2px;
+  border-color: transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #b42318;
+}
+
+.sparkle-button--tertiary:hover,
+.sparkle-button--dangerTertiary:hover {
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.sparkle-button--secondary:hover {
+  background: var(--sk-bg-soft);
+}
+
+.sparkle-button--tertiary:hover {
+  color: var(--sk-ink-soft);
+}
+
+.sparkle-button--dangerSecondary:hover {
+  background: #fff0ee;
+}
+
+.sparkle-button--dangerTertiary:hover {
+  color: #8f1d14;
+}
+
+.sparkle-button--sm {
   min-height: 40px;
   padding: 0 14px;
   font-size: 14px;
 }
 
-.s-btn--md {
+.sparkle-button--md {
   min-height: 50px;
   padding: 0 20px;
   font-size: 17px;
 }
 
-.s-btn--lg {
+.sparkle-button--lg {
   min-height: 58px;
   padding: 0 24px;
   font-size: 19px;
 }
 
-.s-btn--disabled {
+.sparkle-button--disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-.s-btn--disabled:hover {
+.sparkle-button--disabled:hover {
   transform: none;
   box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
 }

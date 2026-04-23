@@ -18,8 +18,8 @@ import SButton from '../lib/Button/SButton.vue';
       </p>
 
       <div class="hero__actions">
-        <SButton type="primary">Get Started</SButton>
-        <SButton type="outline">View Repository</SButton>
+        <SButton kind="primary">Get Started</SButton>
+        <SButton kind="secondary">View Repository</SButton>
         
       </div>
 

@@ -14,10 +14,10 @@ import SButton from '../../lib/Button/SButton.vue'
 
       <div class="intro__actions">
         <router-link to="/docs/switch">
-          <SButton type="primary">Browse Components</SButton>
+          <SButton kind="primary">Browse Components</SButton>
         </router-link>
         <a href="https://github.com" target="_blank" rel="noreferrer">
-          <SButton type="outline">GitHub</SButton>
+          <SButton kind="secondary">GitHub</SButton>
         </a>
       </div>
     </section>
@@ -41,7 +41,7 @@ import SButton from '../../lib/Button/SButton.vue'
 
         <article class="setup-card">
           <p class="setup-card__label">Use a component</p>
-          <pre class="setup-card__code"><code>&lt;SButton type="primary"&gt;Create&lt;/SButton&gt;</code></pre>
+          <pre class="setup-card__code"><code>&lt;SButton kind="primary"&gt;Create&lt;/SButton&gt;</code></pre>
         </article>
       </div>
     </section>

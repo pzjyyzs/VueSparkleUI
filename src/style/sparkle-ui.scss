@@ -1,0 +1,23 @@
+@use "./tokens.scss";
+
+:where([class^="sparkle-"], [class*=" sparkle-"]) {
+  box-sizing: border-box;
+  font-family: var(--sk-font-body);
+}
+
+:where([class^="sparkle-"], [class*=" sparkle-"]) *,
+:where([class^="sparkle-"], [class*=" sparkle-"]) *::before,
+:where([class^="sparkle-"], [class*=" sparkle-"]) *::after {
+  box-sizing: inherit;
+}
+
+:where(button[class^="sparkle-"], button[class*=" sparkle-"]) {
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
+
+:where([class^="sparkle-"], [class*=" sparkle-"]) :where(svg, img) {
+  display: block;
+  max-width: 100%;
+}

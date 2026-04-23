@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import SSwitch from '../lib/Switch/SSwitch.vue'
+
+const enabled = ref(true)
+const secondary = ref(false)
 </script>
 
 <template>
@@ -12,7 +16,20 @@ import SSwitch from '../lib/Switch/SSwitch.vue'
 
     <div class="preview-card">
       <h3>Preview</h3>
-      <SSwitch />
+      <div class="switch-preview">
+        <SSwitch v-model="enabled">123</SSwitch>
+        <SSwitch v-model="secondary" size="sm" />
+        <SSwitch :model-value="true" disabled />
+      </div>
     </div>
   </section>
 </template>
+
+<style scoped lang="scss">
+.switch-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+</style>

@@ -20,9 +20,9 @@ const handleInput = (event: Event) => {
 <template>
   <input
     :class="[
-        's-input',
-        `s-input--${size}`,
-        { 's-input--disabled': disabled }
+        'sparkle-input',
+        `sparkle-input--${size}`,
+        { 'sparkle-input--disabled': disabled }
     ]"
     :placeholder="placeholder"
     :disabled="disabled"
@@ -31,8 +31,8 @@ const handleInput = (event: Event) => {
   />
 </template>
 
-<style scoped lang="scss">
-.s-input {
+<style lang="scss">
+.sparkle-input {
   width: 100%;
   min-height: 50px;
   padding: 0 16px;
@@ -50,34 +50,34 @@ const handleInput = (event: Event) => {
     border-color var(--sk-transition);
 }
 
-.s-input::placeholder {
+.sparkle-input::placeholder {
   color: var(--sk-ink-soft);
 }
 
-.s-input:focus {
+.sparkle-input:focus {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--sk-shadow-color);
 }
 
-.s-input--sm {
+.sparkle-input--sm {
   min-height: 40px;
   padding: 0 12px;
   font-size: 14px;
 }
 
-.s-input--md {
+.sparkle-input--md {
   min-height: 50px;
   padding: 0 16px;
   font-size: 16px;
 }
 
-.s-input--lg {
+.sparkle-input--lg {
   min-height: 58px;
   padding: 0 18px;
   font-size: 18px;
 }
 
-.s-input--disabled {
+.sparkle-input--disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }

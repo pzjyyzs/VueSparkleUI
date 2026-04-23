@@ -7,16 +7,16 @@ withDefaults(defineProps<SCardProps>(), {
 </script>
 
 <template>
-  <section class="s-card">
-    <h3 v-if="title" class="s-card__title">{{ title }}</h3>
-    <div class="s-card__body">
+  <section class="sparkle-card">
+    <h3 v-if="title" class="sparkle-card__title">{{ title }}</h3>
+    <div class="sparkle-card__body">
       <slot />
     </div>
   </section>
 </template>
 
-<style lang="scss" scoped>
-.s-card {
+<style lang="scss">
+.sparkle-card {
   padding: 20px;
   border: var(--sk-border-width) solid var(--sk-line);
   border-radius: var(--sk-radius);
@@ -25,7 +25,7 @@ withDefaults(defineProps<SCardProps>(), {
   position: relative;
 }
 
-.s-card::after {
+.sparkle-card::after {
   content: "";
   position: absolute;
   inset: 8px;
@@ -35,12 +35,12 @@ withDefaults(defineProps<SCardProps>(), {
   pointer-events: none;
 }
 
-.s-card__title {
+.sparkle-card__title {
   margin-bottom: 12px;
   font-size: 22px;
 }
 
-.s-card__body {
+.sparkle-card__body {
   color: var(--sk-ink-soft);
   line-height: 1.6;
 }
