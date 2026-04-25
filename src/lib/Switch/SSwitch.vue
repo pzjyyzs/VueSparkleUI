@@ -75,13 +75,14 @@ const placeholderClass = computed(() => {
   width: 64px;
   height: 36px;
   padding: 4px;
-  border: var(--sk-border-width) solid var(--sk-line);
+  border: 2px solid var(--sk-line);
   border-radius: var(--sk-radius-pill);
-  background:
-    linear-gradient(transparent 8px, rgba(0, 0, 0, 0.05) 9px),
-    var(--sk-bg);
-  background-size: 100% 9px, auto;
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  background: var(--sk-bg-soft);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
+  transition:
+    background var(--sk-transition),
+    box-shadow var(--sk-transition),
+    border-color var(--sk-transition);
 }
 
 .sparkle-switch__thumb {
@@ -89,7 +90,7 @@ const placeholderClass = computed(() => {
   height: 20px;
   border: 2px solid var(--sk-line);
   border-radius: 50%;
-  background: var(--sk-bg);
+  background: #fff;
   transition:
     transform var(--sk-transition),
     background var(--sk-transition),
@@ -99,26 +100,24 @@ const placeholderClass = computed(() => {
 .sparkle-switch__label {
   font-size: 14px;
   color: var(--sk-ink-soft);
+  font-weight: 600;
 }
 
 .sparkle-switch:hover .sparkle-switch__track {
-  background:
-    linear-gradient(transparent 8px, rgba(0, 0, 0, 0.06) 9px),
-    var(--sk-bg-soft);
-  background-size: 100% 9px, auto;
+  background: #fff;
 }
 
 .sparkle-switch--checked .sparkle-switch__track {
-  background: var(--sk-line);
+  background: var(--sk-accent);
 }
 
 .sparkle-switch--checked:hover .sparkle-switch__track {
-  background: #222;
+  background: #f3d14d;
 }
 
 .sparkle-switch--checked .sparkle-switch__thumb {
   transform: translateX(28px);
-  background: var(--sk-bg);
+  background: #fff;
 }
 
 .sparkle-switch--checked .sparkle-switch__label {

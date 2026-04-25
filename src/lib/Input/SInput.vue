@@ -36,27 +36,29 @@ const handleInput = (event: Event) => {
   width: 100%;
   min-height: 50px;
   padding: 0 16px;
-  border: var(--sk-border-width) solid var(--sk-line);
-  border-radius: var(--sk-radius);
-  background: var(--sk-bg);
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  border: 2px solid var(--sk-line);
+  border-radius: 20px;
+  background: var(--sk-bg-soft);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
   font-family: var(--sk-font-body);
   font-size: 16px;
   color: var(--sk-ink);
   outline: none;
   transition:
-    transform var(--sk-transition),
     box-shadow var(--sk-transition),
-    border-color var(--sk-transition);
+    border-color var(--sk-transition),
+    background var(--sk-transition);
 }
 
 .sparkle-input::placeholder {
   color: var(--sk-ink-soft);
+  opacity: 0.9;
 }
 
 .sparkle-input:focus {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--sk-shadow-color);
+  background: #fff;
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(191, 227, 255, 0.9);
 }
 
 .sparkle-input--sm {
@@ -80,5 +82,6 @@ const handleInput = (event: Event) => {
 .sparkle-input--disabled {
   opacity: 0.55;
   cursor: not-allowed;
+  background: var(--sk-bg-muted);
 }
 </style>

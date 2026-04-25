@@ -1,6 +1,23 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import Topnav from '../components/Topnav.vue'
 import { demoRoutes, gettingStartedRoutes } from '../router'
+
+const groupedDemoRoutes = computed(() => {
+  const groups: Record<string, typeof demoRoutes> = {}
+
+  for (const route of demoRoutes) {
+    const category = route.category ?? 'General'
+
+    if (!groups[category]) {
+      groups[category] = []
+    }
+
+    groups[category].push(route)
+  }
+
+  return groups
+})
 </script>
 
 <template>
@@ -9,19 +26,33 @@ import { demoRoutes, gettingStartedRoutes } from '../router'
 
     <div class="docs-layout">
       <aside class="docs-sidebar">
-        <h2>Getting Started</h2>
-        <ul>
-          <li v-for="item of gettingStartedRoutes" :key="item.path">
-            <router-link :to="`/docs/${item.path}`" class="docs-sidebar__link">{{ item.name }}</router-link>
-          </li>
-        </ul>
+        <section class="docs-sidebar__section">
+          <h2 class="docs-sidebar__section-title">Getting Started</h2>
+          <ul class="docs-sidebar__list">
+            <li v-for="item of gettingStartedRoutes" :key="item.path">
+              <router-link :to="`/docs/${item.path}`" class="docs-sidebar__link">{{ item.name }}</router-link>
+            </li>
+          </ul>
+        </section>
 
-        <h2 class="docs-sidebar__group-title">Components</h2>
-        <ul>
-          <li v-for="item of demoRoutes" :key="item.path">
-            <router-link :to="`/docs/${item.path}`" class="docs-sidebar__link">{{ item.name }}</router-link>
-          </li>
-        </ul>
+        <section class="docs-sidebar__section docs-sidebar__section--components">
+          <h2 class="docs-sidebar__section-title">Components</h2>
+
+          <div
+            v-for="(items, category) in groupedDemoRoutes"
+            :key="category"
+            class="docs-sidebar__category"
+          >
+            <h3 class="docs-sidebar__group-title">{{ category }}</h3>
+            <ul class="docs-sidebar__list docs-sidebar__list--nested">
+              <li v-for="item of items" :key="item.path">
+                <router-link :to="`/docs/${item.path}`" class="docs-sidebar__link docs-sidebar__link--nested">
+                  {{ item.name }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </section>
       </aside>
 
       <main class="docs-main">
@@ -54,7 +85,11 @@ import { demoRoutes, gettingStartedRoutes } from '../router'
   padding: 8px 0;
 }
 
-.docs-sidebar h2 {
+.docs-sidebar__section + .docs-sidebar__section {
+  margin-top: 28px;
+}
+
+.docs-sidebar__section-title {
   margin-bottom: 12px;
   color: var(--sk-ink-soft);
   font-size: 12px;
@@ -64,13 +99,29 @@ import { demoRoutes, gettingStartedRoutes } from '../router'
 }
 
 .docs-sidebar__group-title {
-  margin-top: 28px;
+  margin-bottom: 8px;
+  color: var(--sk-ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-.docs-sidebar ul {
+.docs-sidebar__category + .docs-sidebar__category {
+  margin-top: 18px;
+}
+
+.docs-sidebar__category {
+  padding-left: 12px;
+}
+
+.docs-sidebar__list {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.docs-sidebar__list--nested {
+  gap: 4px;
 }
 
 .docs-sidebar li {
@@ -87,6 +138,10 @@ import { demoRoutes, gettingStartedRoutes } from '../router'
   transition:
     background var(--sk-transition),
     color var(--sk-transition);
+}
+
+.docs-sidebar__link--nested {
+  padding-left: 24px;
 }
 
 .docs-sidebar__link:hover,

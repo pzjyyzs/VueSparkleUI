@@ -18,31 +18,32 @@ withDefaults(defineProps<SCardProps>(), {
 <style lang="scss">
 .sparkle-card {
   padding: 20px;
-  border: var(--sk-border-width) solid var(--sk-line);
-  border-radius: var(--sk-radius);
-  background: var(--sk-bg);
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  border: 2px solid var(--sk-line);
+  border-radius: 24px;
+  background: var(--sk-bg-soft);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
   position: relative;
 }
 
 .sparkle-card::after {
   content: "";
   position: absolute;
-  inset: 8px;
-  border: 1px solid var(--sk-line);
-  border-radius: 6px;
-  opacity: 0.18;
+  inset: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.24);
+  border-radius: 18px;
+  opacity: 0.65;
   pointer-events: none;
 }
 
 .sparkle-card__title {
   margin-bottom: 12px;
-  font-size: 22px;
+  font-size: 21px;
+  letter-spacing: 0.01em;
 }
 
 .sparkle-card__body {
   color: var(--sk-ink-soft);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 </style>

@@ -1,25 +1,25 @@
 :root {
   /* colors */
   --sk-bg: #ffffff;
-  --sk-bg-soft: #fafafa;
-  --sk-bg-muted: #f1f1f1;
+  --sk-bg-soft: #fffdf7;
+  --sk-bg-muted: #f7f3ea;
   --sk-ink: #171717;
   --sk-ink-soft: #5b5b5b;
   --sk-line: #000000;
-  --sk-accent: #000000;
-  --sk-accent-2: #ededed;
-  --sk-danger: #000000;
+  --sk-accent: #f7d86a;
+  --sk-accent-2: #bfe3ff;
+  --sk-danger: #d92d20;
 
   /* shape */
-  --sk-border-width: 3px;
-  --sk-radius: 10px;
-  --sk-radius-sm: 6px;
+  --sk-border-width: 2px;
+  --sk-radius: 18px;
+  --sk-radius-sm: 12px;
   --sk-radius-pill: 999px;
 
   /* shadow */
-  --sk-shadow-x: 4px;
-  --sk-shadow-y: 4px;
-  --sk-shadow-color: #000000;
+  --sk-shadow-x: 2px;
+  --sk-shadow-y: 2px;
+  --sk-shadow-color: rgba(0, 0, 0, 0.16);
 
   /* spacing */
   --sk-space-1: 4px;

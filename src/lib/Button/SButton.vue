@@ -31,43 +31,39 @@ const props = withDefaults(defineProps<SButtonProps>(), {
   justify-content: center;
   min-height: 50px;
   padding: 0 20px;
-  border: var(--sk-border-width) solid var(--sk-line);
-  border-radius: var(--sk-radius);
-  background: var(--sk-bg);
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  border: 2px solid var(--sk-line);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.14);
   font-family: var(--sk-font-heading);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   transition:
-    transform var(--sk-transition),
     box-shadow var(--sk-transition),
     background var(--sk-transition),
-    color var(--sk-transition);
+    color var(--sk-transition),
+    border-color var(--sk-transition);
   cursor: pointer;
 }
 
 .sparkle-button:hover {
-  transform: translate(3px, 3px) rotate(-1deg);
-  box-shadow: 1px 1px 0 var(--sk-shadow-color);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.14);
 }
 
 .sparkle-button--primary {
-  background: var(--sk-line);
-  color: var(--sk-bg);
+  background: #111;
+  color: #fff;
 }
 
 .sparkle-button--secondary {
-  background:
-    linear-gradient(transparent 9px, rgba(0, 0, 0, 0.05) 10px),
-    var(--sk-bg);
-  background-size: 100% 10px, auto;
+  background: #fff;
   color: var(--sk-ink);
 }
 
 .sparkle-button--tertiary {
   min-height: auto;
-  padding: 0 2px;
+  padding: 0 4px;
   border-color: transparent;
   border-radius: 0;
   background: transparent;
@@ -76,39 +72,35 @@ const props = withDefaults(defineProps<SButtonProps>(), {
 }
 
 .sparkle-button--dangerPrimary {
-  border-color: #b42318;
-  background: #b42318;
+  border-color: #d92d20;
+  background: #d92d20;
   color: #fff;
 }
 
 .sparkle-button--dangerSecondary {
-  border-color: #b42318;
-  background:
-    linear-gradient(transparent 9px, rgba(180, 35, 24, 0.08) 10px),
-    #fff7f6;
-  background-size: 100% 10px, auto;
-  color: #b42318;
+  border-color: #d92d20;
+  background: #fff;
+  color: #d92d20;
 }
 
 .sparkle-button--dangerTertiary {
   min-height: auto;
-  padding: 0 2px;
+  padding: 0 4px;
   border-color: transparent;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  color: #b42318;
+  color: #d92d20;
 }
 
 .sparkle-button--tertiary:hover,
 .sparkle-button--dangerTertiary:hover {
-  transform: none;
   box-shadow: none;
   background: transparent;
 }
 
 .sparkle-button--secondary:hover {
-  background: var(--sk-bg-soft);
+  background: #f7f7f7;
 }
 
 .sparkle-button--tertiary:hover {
@@ -116,15 +108,15 @@ const props = withDefaults(defineProps<SButtonProps>(), {
 }
 
 .sparkle-button--dangerSecondary:hover {
-  background: #fff0ee;
+  background: #fff5f4;
 }
 
 .sparkle-button--dangerTertiary:hover {
-  color: #8f1d14;
+  color: #b42318;
 }
 
 .sparkle-button--sm {
-  min-height: 40px;
+  min-height: 38px;
   padding: 0 14px;
   font-size: 14px;
 }
@@ -132,13 +124,13 @@ const props = withDefaults(defineProps<SButtonProps>(), {
 .sparkle-button--md {
   min-height: 50px;
   padding: 0 20px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .sparkle-button--lg {
-  min-height: 58px;
+  min-height: 56px;
   padding: 0 24px;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .sparkle-button--disabled {
@@ -148,7 +140,6 @@ const props = withDefaults(defineProps<SButtonProps>(), {
 }
 
 .sparkle-button--disabled:hover {
-  transform: none;
-  box-shadow: var(--sk-shadow-x) var(--sk-shadow-y) 0 var(--sk-shadow-color);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.14);
 }
 </style>
